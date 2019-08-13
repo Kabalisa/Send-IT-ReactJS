@@ -135,7 +135,7 @@ class Signup extends Component {
                 <br />
                 <br />
                 <a
-                  href='#iop'
+                  href='/profile'
                   className='three-4'
                   id='12'
                   onmouseover='regular3()'

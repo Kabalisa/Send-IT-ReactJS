@@ -1,10 +1,32 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { loginUser } from '../actions/index';
 import NavBar from './navBar.jsx';
 import Footer from './footer.jsx';
+import { setToken } from '../helpers/setToken';
 
 class Login extends Component {
-  state = {};
+  state = {
+    credentials: {
+      Email: '',
+      Password: ''
+    }
+  };
+
+  onChangeHandler = event => {
+    const data = { ...this.state.credentials };
+    data[event.target.name] = event.target.value;
+    this.setState({ credentials: data });
+  };
+  componentDidUpdate() {
+    const { isAuthenticated, token } = this.props.state.auth;
+    if (isAuthenticated) {
+      setToken(token);
+    }
+    isAuthenticated && window.location.replace('/profile');
+  }
   render() {
+    const { message } = this.props.state.auth;
     return (
       <div>
         <NavBar />
@@ -18,6 +40,8 @@ class Login extends Component {
               id='emm'
               name='Email'
               placeholder='Email'
+              onChange={this.onChangeHandler}
+              value={this.state.credentials.Email}
             />{' '}
             <br />
             Password
@@ -25,18 +49,27 @@ class Login extends Component {
               type='password'
               className='text1'
               id='pas'
-              name='pswd'
+              name='Password'
               placeholder='Password'
+              onChange={this.onChangeHandler}
+              value={this.state.credentials.Password}
             />{' '}
             <br />
-            <p id='invalid' className='popup' />
+            <p id='invalid' className='popup'>
+              {message}
+            </p>
             <label>
               {' '}
               <input type='checkbox' name='remember' /> Remember me{' '}
             </label>{' '}
             <br />
             <br />
-            <a href='#' className='bt' id='sig'>
+            <a
+              href='#'
+              className='bt'
+              id='sig'
+              onClick={() => this.props.loginUser(this.state.credentials)}
+            >
               Sign In
             </a>{' '}
             <br />
@@ -44,7 +77,7 @@ class Login extends Component {
             <br />
             <a href=''>Forgot Password or Email?</a> <br />
             <br />
-            <a href='signup.html' className='btn'>
+            <a href='/signup' className='btn'>
               Sign Up
             </a>
           </form>
@@ -54,5 +87,11 @@ class Login extends Component {
     );
   }
 }
+const mapStateToProps = state => {
+  return { state };
+};
 
-export default Login;
+export default connect(
+  mapStateToProps,
+  { loginUser }
+)(Login);

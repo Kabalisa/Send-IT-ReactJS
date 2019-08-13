@@ -13,12 +13,12 @@ class Profile extends Component {
           <a href='#p' className='one-2' id='4'>
             username
           </a>
-          <a href='#p' className='one-2' id='5'>
+          <a href='/login' className='one-2' id='5'>
             <span style={{ color: '#FF4560' }}>Log Out</span>
           </a>
         </div>
         <div className='conta'>
-          <div class='info col-s-6 col-s-8 col-s-11 col-s-11-5'>
+          <div className='info col-s-6 col-s-8 col-s-11 col-s-11-5'>
             <div className='messi'>
               <h3>
                 <b>My Profile</b>
