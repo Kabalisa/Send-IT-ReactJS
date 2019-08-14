@@ -69,13 +69,11 @@ class Profile extends Component {
           </div>
         </div>
         <div className='block-1'>
-          <a href='../index.html'>Home</a>
-          <a href='contactus'>Contact Us</a>
-          <a href='contactus#contact'>About Us</a>
-          <a href='myprofile.html' id='x'>
+          <a href='/'>Home</a>
+          <a href='/profile' id='x'>
             username
           </a>
-          <a href='signin.html'>
+          <a href='/login'>
             <span style={{ color: '#FF4560' }}>Log Out</span>
           </a>
         </div>

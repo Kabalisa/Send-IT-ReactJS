@@ -4,11 +4,9 @@ const Footer = () => {
   return (
     <div>
       <div className='block-1'>
-        <a href='index.html'>Home</a>
-        <a href='html/contactus.html'>Contact Us</a>
-        <a href='html/contactus.html#contact'>About Us</a>
-        <a href='html/signup.html'>Sign Up</a>
-        <a href='html/signin.html'>Sign In</a>
+        <a href='/'>Home</a>
+        <a href='/signup'>Sign Up</a>
+        <a href='/login'>Sign In</a>
       </div>
 
       <hr />

@@ -36,6 +36,7 @@ npm start
 * open [this](https://nameless-beyond-53007.herokuapp.com) link.
 * From the homepage which appears first, navigate to the signup page and login page by choosing the appropriate option from the menu.
 * to test my login API which is consumend by this app, input dummy credentials and you will get an error message.
+
 **locally:**
 * after following the installation above.
 * create a .env file in the root of your project with the below content
